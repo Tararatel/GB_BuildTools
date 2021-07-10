@@ -1,8 +1,9 @@
 'use strict';
 
-const { resolve } = require('path');
+const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const SRC = path.resolve(__dirname, 'node_modules');
 
 module.exports = {
     entry: resolve(__dirname, 'js', 'main.js'),
@@ -14,6 +15,11 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.mp3$/,
+                include: SRC,
+                loader: 'file-loader'
             }
         ]
     },
