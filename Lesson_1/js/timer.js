@@ -61,6 +61,7 @@ startButton.addEventListener('click', (event) => {
                 stopTimer();
                 const endTimer = new Audio('/chicken.mp3');
                 endTimer.play();
+                startButton.disabled = false;
             }
         }
 
